@@ -290,7 +290,83 @@ svg.chart text{font-family:var(--sans)}
   .app{grid-template-columns:210px 1fr}
   .nav a{font-size:12.5px;padding:7px 9px}
 }
-@media print{.side,.topbar,.tgl,.scrim{display:none}.page{display:block!important}.tw{max-height:none;overflow:visible}}
+/* ---------- Relatório ---------- */
+.relbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:0 0 16px}
+.relbar .lbl{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.relbar .obs{flex:1 0 100%;font-size:11.5px;color:var(--muted)}
+.btn-print{margin-left:auto;border:1px solid var(--border-2);background:var(--surface);border-radius:999px;padding:6px 15px;font-size:12.5px;color:var(--ink-2)}
+.btn-print:hover{border-color:var(--grena);color:var(--ink)}
+.folha{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);box-shadow:var(--shadow);padding:26px 30px;margin-bottom:16px}
+.folha+.folha{margin-top:0}
+.folha h2{margin:0 0 3px;font-size:19px;letter-spacing:-.01em}
+.folha .eyebrow{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--grena);font-weight:700;margin:0 0 10px}
+.folha p{margin:0 0 11px;font-size:13.4px;line-height:1.62;color:var(--ink-2)}
+.folha p:last-child{margin-bottom:0}
+.folha strong{color:var(--ink)}
+.folha h3{margin:20px 0 8px;font-size:14px}
+.folha h3:first-of-type{margin-top:14px}
+.capa{display:flex;gap:22px;align-items:center;border-bottom:1px solid var(--grid);padding-bottom:20px;margin-bottom:20px}
+.capa img{width:64px;flex:none}
+.capa h1{margin:0;font-size:25px;letter-spacing:-.02em;line-height:1.15}
+.capa .meta{margin-top:6px;font-size:12.5px;color:var(--muted)}
+.swot{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:6px}
+@media(max-width:860px){.swot{grid-template-columns:1fr}
+  .capa{flex-direction:column;align-items:flex-start;gap:14px}
+  .capa h1{font-size:21px}
+  .folha{padding:20px 18px}
+  .btn-print{margin-left:0}}
+.swot .q{border:1px solid var(--border);border-top-width:3px;border-radius:12px;padding:14px 16px;background:var(--surface-2)}
+.swot .q h4{margin:0 0 9px;font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;font-weight:700}
+.swot .q ul{margin:0;padding-left:17px}
+.swot .q li{margin:0 0 8px;font-size:12.7px;line-height:1.52;color:var(--ink-2)}
+.swot .q li:last-child{margin-bottom:0}
+.swot .q li b{color:var(--ink);font-variant-numeric:tabular-nums}
+.swot .qf{border-top-color:var(--s2)} .swot .qf h4{color:var(--s2)}
+.swot .qw{border-top-color:var(--s1)} .swot .qw h4{color:var(--s1)}
+.swot .qo{border-top-color:var(--s4)} .swot .qo h4{color:var(--s4)}
+.swot .qt{border-top-color:var(--s5)} .swot .qt h4{color:var(--s5)}
+.riscos{display:grid;gap:10px;margin-top:4px}
+.risco{border:1px solid var(--border);border-left:3px solid var(--sev,var(--muted));border-radius:10px;padding:11px 14px;background:var(--surface-2)}
+.risco .rt{display:flex;gap:10px;align-items:center;justify-content:space-between;margin-bottom:5px}
+.risco .rt b{font-size:13px;color:var(--ink)}
+.risco p{margin:0;font-size:12.3px;color:var(--ink-2);line-height:1.5}
+.risco .ev{margin-top:5px;font-size:11.6px;color:var(--muted);font-variant-numeric:tabular-nums}
+.aviso{border:1px solid var(--border-2);border-radius:10px;padding:12px 14px;font-size:12px;color:var(--muted);line-height:1.55;margin-top:16px}
+
+@media print{
+  @page{size:A4;margin:13mm}
+  .side,.topbar,.scrim,.filters,.tgl,.relbar,.btn-print,.tip{display:none!important}
+  .app{display:block}
+  .wrap{padding:0;max-width:none}
+  body{background:#fff;font-size:11.5px}
+  .folha{break-after:page;box-shadow:none;border:none;border-radius:0;padding:0 0 10px;margin:0}
+  .folha:last-of-type{break-after:auto}
+  .folha h2{font-size:16px}
+  .folha p{font-size:11.2px;line-height:1.5}
+  .swot .q,.card{break-inside:avoid}
+  table.t{font-size:9.6px}
+  table.t th,table.t td{padding:4px 6px}
+  .tw{max-height:none;overflow:visible;border-color:#ddd}
+  .swot .q li{font-size:10.2px;line-height:1.42;margin-bottom:5px}
+  .swot .q{padding:10px 12px}
+  .swot{gap:9px}
+  .riscos{grid-template-columns:1fr 1fr;gap:7px}
+  .risco{padding:7px 9px;break-inside:avoid}
+  .risco p{font-size:9.5px;line-height:1.38}
+  .risco .ev{font-size:8.8px;margin-top:3px}
+  .risco .rt b{font-size:10.4px}
+  .risco .rt{margin-bottom:3px}
+  .selo{font-size:8.5px;padding:1px 6px}
+  .folha h3{font-size:12px;margin:12px 0 6px}
+  .destaques b{font-size:15px}
+  .kpi .v{font-size:19px}
+  .kpi{padding:9px 11px}
+  .capa img{width:46px}
+  .capa h1{font-size:19px}
+  .capa{padding-bottom:12px;margin-bottom:12px}
+  .aviso{font-size:9.6px;padding:8px 10px}
+}
+@media print{.page{display:block!important}}
 </style>
 </head>
 <body>
@@ -457,6 +533,7 @@ const REFS={
   }
 };
 let REF_ATIVA='profut';
+let REL_TIPO='exec'; /* versão do relatório: executivo ou investimento */
 const refAtual=()=>REFS[REF_ATIVA];
 
 /* selo de situação: a cor vem sempre acompanhada de ícone e texto */
@@ -1411,6 +1488,232 @@ const PAGES=[
   }
   w.appendChild(node('<div class="note" style="margin-top:16px">Só os tetos de custo de elenco e o limite de dívida de curto prazo vêm de norma. As faixas marcadas como convenção foram definidas para este painel a partir de prática de análise de crédito aplicada a clubes, e não têm respaldo normativo: servem para leitura rápida, não para classificação formal. A liquidez corrente de 1,00 é definição contábil.</div>'));
   w.appendChild(node('<div class="note" style="margin-top:12px">O denominador usado é a receita total do exercício, somando receita operacional e receita com negociação de atletas. Vale notar que a lei do PROFUT fala em receita bruta sem detalhar a composição: se apenas a receita operacional fosse considerada, o indicador de '+ult+' subiria de '+nf1.format(REFS.profut.calc(ult)*100)+'% para '+nf1.format(B.wageRatio(ult)*100)+'%.</div>'));
+}},
+
+/* ---------- Relatório ---------- */
+{id:'relatorio',nome:'Relatório',grupo:'Saída',desc:'Diagnóstico, riscos e SWOT para impressão',render(w){
+  /* o relatório sempre cobre a série auditada completa: um diagnóstico de um ano
+     isolado não permite comparar evolução, então o filtro de anos não se aplica aqui */
+  const a=ANOS.slice(), ult=a[a.length-1], ini=a[0];
+  const bal=(g,c,y)=>B.b(g,c,y);
+  const transfReceber=y=>bal('ativoCirculante','A receber por transferências',y)+bal('ativoNaoCirculante','A receber por transferências (LP)',y);
+  const transfPagar=y=>bal('passivoCirculante','A pagar por transferências',y)+bal('passivoNaoCirculante','A pagar por transferências (LP)',y);
+  const posTransf=y=>transfReceber(y)-transfPagar(y);
+  const transm=y=>sum(DATA.detalheDireitos.filter(r=>r.ano===y));
+  const concentr=M.receitaOperacional(ult)?transm(ult)/M.receitaOperacional(ult):0;
+  const margemRec=M.receitaOperacional(ult)?M.ebitda(ult)/M.receitaOperacional(ult):0;
+  const R=refAtual();
+  const V=v=>`<strong>${fmt(v)}</strong>`;
+
+  const barra=node(`<div class="relbar"><span class="lbl">Versão do relatório</span>`
+    +`<button class="chip${REL_TIPO==='exec'?' on':''}" data-t="exec">Executivo</button>`
+    +`<button class="chip${REL_TIPO==='inv'?' on':''}" data-t="inv">Investimento</button>`
+    +`<button class="btn-print">Imprimir ou salvar em PDF</button>`
+    +`<span class="obs">Cobre sempre ${ini} a ${ult}, sem depender do filtro de anos</span></div>`);
+  barra.querySelectorAll('.chip').forEach(b=>b.addEventListener('click',()=>{REL_TIPO=b.dataset.t;go('relatorio');}));
+  barra.querySelector('.btn-print').addEventListener('click',()=>window.print());
+  w.appendChild(barra);
+
+  const exec=REL_TIPO==='exec';
+  const capa=(titulo,sub)=>`<div class="capa"><img src="${LOGO}" alt="Escudo do Fluminense">
+    <div><h1>${esc(titulo)}</h1><div class="meta">${esc(sub)}</div></div></div>`;
+
+  /* ---------- riscos, ordenados por severidade ---------- */
+  const riscos=[
+    {n:'Liquidez de curto prazo',sev:B.liquidezCorrente(ult)<0.5?'alto':B.liquidezCorrente(ult)<1?'medio':'baixo',
+     ev:`Liquidez corrente de ${nf2.format(B.liquidezCorrente(ult))} e capital circulante líquido de ${fmt(B.capitalCirculante(ult))}`,
+     im:'O ativo circulante cobre pouco mais de um terço das obrigações que vencem em doze meses. Qualquer frustração de receita exige renegociar prazos ou antecipar recebíveis.'},
+    {n:'Passivo a descoberto',sev:B.pl(ult)<0?'alto':'baixo',
+     ev:`Patrimônio líquido de ${fmt(B.pl(ult))} em ${ult}`,
+     im:`O clube deve mais do que possui. A situação melhorou ${fmt(Math.abs(B.pl(ult)-B.pl(ini)))} desde ${ini}, mas o patrimônio segue negativo e limita a capacidade de tomar crédito sem garantias.`},
+    {n:'Passivo tributário parcelado',sev:'alto',
+     ev:`${fmt(B.tributosTotais(ult))} em ${ult}, contra ${fmt(B.tributosTotais(ini))} em ${ini}`,
+     im:'O parcelamento troca caixa hoje por juros amanhã. O auditor registrou ênfase sobre R$ 27.737 mil do PROFUT ainda não homologados, e a perda do programa aceleraria a exigibilidade.'},
+    {n:'Posição devedora em transferências',sev:posTransf(ult)<0?'alto':'medio',
+     ev:`${fmt(transfPagar(ult))} a pagar contra ${fmt(transfReceber(ult))} a receber, saldo de ${fmt(posTransf(ult))}`,
+     im:'O clube comprou mais a prazo do que vendeu a prazo. Isso antecipa desembolsos e reduz o efeito de caixa das vendas já contratadas.'},
+    {n:'Concentração de receita',sev:concentr>0.6?'alto':concentr>0.45?'medio':'baixo',
+     ev:`Direitos de transmissão e premiações representam ${nf1.format(concentr*100)}% da receita operacional`,
+     im:'A maior fonte de receita depende de contrato coletivo e de desempenho em campo. Uma temporada fraca ou uma mudança no modelo de comercialização atinge a receita inteira.'},
+    {n:'Margem operacional próxima de zero',sev:margemRec<0?'alto':margemRec<0.1?'medio':'baixo',
+     ev:`EBITDA recorrente de ${fmt(M.ebitda(ult))} sobre receita operacional de ${fmt(M.receitaOperacional(ult))}, margem de ${nf1.format(margemRec*100)}%`,
+     im:'A operação recorrente praticamente empata. Sem venda de atletas, o exercício não fecha, e a margem não absorve imprevistos.'},
+    {n:'Enquadramento no fair play da CBF',sev:B.dividaCurtoSobreReceita(ult)>0.45?'medio':'baixo',
+     ev:`Passivo circulante equivale a ${nf1.format(B.dividaCurtoSobreReceita(ult)*100)}% da receita, contra teto de 45% cobrado até 2030`,
+     im:'As punições previstas vão de advertência e multa a perda de pontos e rebaixamento. A cobrança plena começa em 2028.'},
+    {n:'Custo financeiro',sev:M.despesaFinanceira(ult)>M.ebitdaTotal(ult)*0.5?'medio':'baixo',
+     ev:`Despesas financeiras de ${fmt(M.despesaFinanceira(ult))} em ${ult}`,
+     im:'Juros de parcelamentos e empréstimos consomem parte relevante do EBITDA total antes de chegar ao resultado.'},
+  ];
+  const ordem={alto:0,medio:1,baixo:2};
+  riscos.sort((x,y)=>ordem[x.sev]-ordem[y.sev]);
+  const selRisco=s2=>s2==='alto'?B.selo('ruim','Alto'):s2==='medio'?B.selo('at','Médio'):B.selo('ok','Baixo');
+  const corSev={alto:'var(--bad)',medio:'var(--warn)',baixo:'var(--s2)'};
+  const tabelaRiscos=()=>'<div class="riscos">'
+    +riscos.map(r=>`<div class="risco" style="--sev:${corSev[r.sev]}">
+        <div class="rt"><b>${esc(r.n)}</b>${selRisco(r.sev)}</div>
+        <p>${esc(r.im)}</p>
+        <p class="ev">${esc(r.ev)}</p></div>`).join('')
+    +'</div>';
+
+  /* ---------- SWOT ---------- */
+  const swot=(f,fr,o,am)=>`<div class="swot">
+    <div class="q qf"><h4>Forças</h4><ul>${f.map(x=>`<li>${x}</li>`).join('')}</ul></div>
+    <div class="q qw"><h4>Fraquezas</h4><ul>${fr.map(x=>`<li>${x}</li>`).join('')}</ul></div>
+    <div class="q qo"><h4>Oportunidades</h4><ul>${o.map(x=>`<li>${x}</li>`).join('')}</ul></div>
+    <div class="q qt"><h4>Ameaças</h4><ul>${am.map(x=>`<li>${x}</li>`).join('')}</ul></div></div>`;
+
+  const hoje=new Date().toLocaleDateString('pt-BR',{day:'2-digit',month:'long',year:'numeric'});
+
+  if(exec){
+    /* ================= RELATÓRIO EXECUTIVO ================= */
+    w.appendChild(node(`<div class="folha">${capa('Relatório executivo de saúde financeira',
+      `Fluminense Football Club · exercícios de ${ini} a ${ult} · valores em R$ mil · emitido em ${hoje}`)}
+      <p class="eyebrow">Sumário</p>
+      <p><strong>A operação virou em ${ult}, mas a estrutura patrimonial ainda não.</strong> O EBITDA recorrente ficou positivo em ${V(M.ebitda(ult))} depois de ${a.filter(y=>M.ebitda(y)<0).length} anos negativos, com a receita operacional alcançando ${V(M.receitaOperacional(ult))}. É a primeira vez no período em que a operação de futebol se paga sem depender da venda de atletas.</p>
+      <p>Ao mesmo tempo, o clube fecha ${ult} com patrimônio líquido de ${V(B.pl(ult))} e liquidez corrente de <strong>${nf2.format(B.liquidezCorrente(ult))}</strong>. O capital circulante líquido, de ${V(B.capitalCirculante(ult))}, é o pior da série. A melhora do resultado não se converteu, ainda, em folga financeira.</p>
+      <p>O endividamento é de natureza fiscal e trabalhista, não bancária. A dívida financeira líquida é de apenas ${V(B.dividaLiquida(ult))}, enquanto os tributos parcelados somam ${V(B.tributosTotais(ult))} e quase dobraram desde ${ini}.</p>
+      <p>O resultado do exercício foi de ${V(M.resultado(ult))}, contra ${V(B.dre('superavit',ult))} publicados na demonstração auditada.</p>
+      <h3>Indicadores do exercício</h3>
+      <div class="grid g4" style="margin-top:10px">
+      ${kpi('Receita operacional',fmt(M.receitaOperacional(ult)),'R$ mil',sc(1))}
+      ${kpi('EBITDA recorrente',fmt(M.ebitda(ult)),'Margem de '+nf1.format(margemRec*100)+'%',M.ebitda(ult)>=0?'var(--s2)':'var(--bad)')}
+      ${kpi('Patrimônio líquido',fmt(B.pl(ult)),B.pl(ult)<0?'Passivo a descoberto':'Positivo','var(--bad)')}
+      ${kpi('Liquidez corrente',nf2.format(B.liquidezCorrente(ult)),'Abaixo de 1,00','var(--bad)')}
+      </div></div>`));
+
+    const f2=node(`<div class="folha"><p class="eyebrow">Diagnóstico</p><h2>Como o clube chegou até aqui</h2>
+      <p>Entre ${ini} e ${ult} a receita operacional saiu de ${V(M.receitaOperacional(ini))} para ${V(M.receitaOperacional(ult))}. Os custos operacionais acompanharam, de ${V(M.custosOperacionais(ini))} para ${V(M.custosOperacionais(ult))}. O ponto de inflexão está em ${ult}, quando a receita cresceu mais rápido que o custo pela primeira vez de forma relevante.</p>
+      <p>A folha de salários, encargos e benefícios responde por <strong>${nf1.format(B.folha(ult)/M.custosTotais(ult)*100)}%</strong> do custo operacional. Pelo critério do ${esc(R.nome)}, o custo de elenco equivale a <strong>${nf1.format(R.calc(ult)*100)}%</strong> da receita, dentro do teto de ${esc(R.rotulo)}.</p>
+      <p>A dependência de negociação de atletas caiu de <strong>${nf1.format(B.dependencia(ini)*100)}%</strong> da receita total em ${ini} para <strong>${nf1.format(B.dependencia(ult)*100)}%</strong> em ${ult}. É a segunda boa notícia do exercício: o clube passou a depender menos de vender para faturar.</p>
+      <h3>Evolução do resultado</h3></div>`);
+    f2.appendChild(card({title:'EBITDA recorrente e resultado líquido',sub:'Em R$ mil, por ano',type:'bars',cats:a.map(String),catLabel:'Ano',height:300,
+      series:[{name:'EBITDA recorrente',data:a.map(M.ebitda),color:sc(0)},{name:'Resultado líquido',data:a.map(M.resultado),color:sc(1)}]}));
+    w.appendChild(f2);
+
+    w.appendChild(node(`<div class="folha"><p class="eyebrow">Riscos</p><h2>Pontos de atenção, do mais grave ao menos grave</h2>
+      <p>A classificação abaixo considera a severidade para a continuidade da operação nos próximos doze a vinte e quatro meses.</p>
+      ${tabelaRiscos()}</div>`));
+
+    w.appendChild(node(`<div class="folha"><p class="eyebrow">Síntese</p><h2>Análise SWOT</h2>
+      ${swot(
+        [`Primeira margem operacional positiva do período, com EBITDA recorrente de <b>${fmt(M.ebitda(ult))}</b>`,
+         `Dívida bancária praticamente neutra: <b>${fmt(B.dividaLiquida(ult))}</b> líquidos de caixa`,
+         `Receita operacional multiplicada por <b>${nf1.format(M.receitaOperacional(ult)/M.receitaOperacional(ini))}</b> entre ${ini} e ${ult}`,
+         `Ativo imobilizado de <b>${fmt(bal('ativoNaoCirculante','Imobilizado',ult))}</b>, base física própria`,
+         `Capacidade comprovada de gerar caixa com formação e venda de atletas`],
+        [`Patrimônio líquido negativo em <b>${fmt(Math.abs(B.pl(ult)))}</b>`,
+         `Liquidez corrente de <b>${nf2.format(B.liquidezCorrente(ult))}</b> e capital circulante líquido de <b>${fmt(B.capitalCirculante(ult))}</b>`,
+         `Margem operacional de apenas <b>${nf1.format(margemRec*100)}%</b>, sem folga para imprevistos`,
+         `Concentração de <b>${nf1.format(concentr*100)}%</b> da receita operacional em direitos de transmissão`,
+         `Passivo tributário parcelado de <b>${fmt(B.tributosTotais(ult))}</b>`],
+        [`Recompra da participação nos direitos comerciais do Brasileirão, amortizada em 50 anos`,
+         `Patrimônio líquido recuperou <b>${fmt(Math.abs(B.pl(ult)-B.pl(ini)))}</b> desde ${ini}, com espaço para seguir`,
+         `Base de sócios e público ainda pouco monetizada frente ao tamanho da torcida`,
+         `Enquadramento antecipado ao fair play da CBF como diferencial competitivo`,
+         `Entrada de capital via SAF para resolver a estrutura patrimonial de uma vez`],
+        [`Punições do fair play da CBF a partir de 2028, que vão de multa a perda de pontos`,
+         `R$ 27.737 mil do PROFUT ainda pendentes de homologação fiscal`,
+         `Despesas financeiras de <b>${fmt(M.despesaFinanceira(ult))}</b> no exercício, corroendo o resultado`,
+         `Necessidade recorrente de vender atletas para fechar o caixa`,
+         `Saldo devedor de <b>${fmt(Math.abs(posTransf(ult)))}</b> em transferências já contratadas`])}
+      </div>`));
+
+    w.appendChild(node(`<div class="folha"><p class="eyebrow">Conclusão</p><h2>O que acompanhar nos próximos exercícios</h2>
+      <p>Três números dizem se a virada de ${ult} foi estrutural ou pontual.</p>
+      <p>A <strong>margem do EBITDA recorrente</strong> precisa sair de ${nf1.format(margemRec*100)}% para a casa de dois dígitos. Uma margem de menos de um por cento não absorve uma eliminação precoce, uma lesão em série no elenco ou um atraso de repasse. Enquanto a operação empatar, qualquer evento adverso volta a ser coberto por venda de atleta.</p>
+      <p>A <strong>liquidez corrente</strong> precisa caminhar para 1,00. Em ${nf2.format(B.liquidezCorrente(ult))}, o clube depende de renegociar prazos para atravessar o ano. O caminho passa por alongar o passivo circulante de ${fmt(B.t('passivoCirculante',ult))}, não por aumentar receita.</p>
+      <p>O <strong>saldo de tributos parcelados</strong> precisa parar de crescer. Saiu de ${fmt(B.tributosTotais(ini))} em ${ini} para ${fmt(B.tributosTotais(ult))} em ${ult}. Cada novo parcelamento é caixa hoje em troca de despesa financeira amanhã, e a despesa financeira já consome ${fmt(M.despesaFinanceira(ult))} por exercício.</p>
+      <p>Se os três se moverem na direção certa por dois exercícios seguidos, ${ult} terá sido uma virada estrutural. Se apenas o resultado melhorar, terá sido um ano bom dentro do mesmo padrão.</p>
+      <div class="aviso">Relatório gerado a partir das demonstrações contábeis auditadas de ${ini} a ${ult}. Os valores de ${a.filter(y=>Math.abs(M.resultado(y)-B.dre('superavit',y))>=100).join(' e ')||'nenhum ano'} apresentam divergência em relação ao publicado, detalhada na página de Demonstração de Resultados.</div></div>`));
+
+  } else {
+    /* ================= RELATÓRIO DE INVESTIMENTO ================= */
+    const evTeorica=B.t('passivoTotal',ult)+Math.abs(B.pl(ult))*0;
+    w.appendChild(node(`<div class="folha">${capa('Relatório de análise para investimento',
+      `Fluminense Football Club · exercícios de ${ini} a ${ult} · valores em R$ mil · emitido em ${hoje}`)}
+      <p class="eyebrow">Tese em uma página</p>
+      <p><strong>O que se compra:</strong> uma operação que faturou ${V(B.receitaTotal(ult))} em ${ult}, sendo ${V(M.receitaOperacional(ult))} de receita recorrente, com marca nacional, base física própria de ${V(bal('ativoNaoCirculante','Imobilizado',ult))} em imobilizado e um elenco registrado em ${V(bal('ativoNaoCirculante','Intangível',ult))} de intangível.</p>
+      <p><strong>O que vem junto:</strong> um passivo de ${V(B.t('passivoTotal',ult))} contra ativo de ${V(B.t('ativoTotal',ult))}, ou seja, patrimônio líquido negativo de ${V(Math.abs(B.pl(ult)))}. Desse passivo, ${V(B.tributosTotais(ult))} são tributos parcelados e apenas ${V(B.dividaBruta(ult))} são dívida bancária.</p>
+      <p><strong>Por que agora:</strong> ${ult} foi o primeiro exercício do período com EBITDA recorrente positivo, em ${V(M.ebitda(ult))}, e com a dependência de venda de atletas caindo para ${nf1.format(B.dependencia(ult)*100)}% da receita. O ativo operacional começou a se sustentar, o que muda a natureza do que está sendo negociado.</p>
+      <p><strong>O risco central:</strong> a margem ainda é de ${nf1.format(margemRec*100)}%. A tese depende de o comprador conseguir transformar escala de receita em margem, e de equacionar ${V(B.t('passivoCirculante',ult))} de passivo circulante contra ${V(B.t('ativoCirculante',ult))} de ativo circulante.</p>
+      <div class="grid g4" style="margin-top:14px">
+      ${kpi('Receita total '+ult,fmt(B.receitaTotal(ult)),'Operacional mais transferências',sc(1))}
+      ${kpi('EBITDA total '+ult,fmt(M.ebitdaTotal(ult)),'Com negociação de atletas',sc(3))}
+      ${kpi('Dívida financeira líquida',fmt(B.dividaLiquida(ult)),'Empréstimos menos caixa',sc(2))}
+      ${kpi('Passivo a assumir',fmt(B.t('passivoTotal',ult)),'Total do passivo','var(--bad)')}
+      </div></div>`));
+
+    const f2=node(`<div class="folha"><p class="eyebrow">Qualidade do ativo</p><h2>De onde vem o dinheiro e quanto dele é recorrente</h2>
+      <p>A receita total de ${ult} foi de ${V(B.receitaTotal(ult))}, dos quais ${V(M.receitaOperacional(ult))} recorrentes e ${V(M.receitaExtra(ult))} vindos de negociação de atletas e itens extraordinários. A parcela não recorrente caiu de ${nf1.format(B.dependencia(ini)*100)}% em ${ini} para ${nf1.format(B.dependencia(ult)*100)}% em ${ult}.</p>
+      <p>Dentro da receita recorrente, <strong>${nf1.format(concentr*100)}%</strong> vem de direitos de transmissão e premiações. É uma receita de qualidade contratual, mas de titularidade coletiva e sujeita a desempenho esportivo. Patrocínios, sócio-torcedor e bilheteria somam o restante e são as alavancas sobre as quais um controlador tem gestão direta.</p>
+      <p>A geração de caixa operacional foi de ${V(B.f('operacional',ult))} em ${ult}, contra ${V(B.f('operacional',ini))} em ${ini}. O investimento no elenco consumiu ${V(Math.abs(B.f('investimento',ult)))} no mesmo exercício.</p>
+      <h3>Receita recorrente e não recorrente</h3></div>`);
+    f2.appendChild(card({title:'Composição da receita total',sub:'Em R$ mil, empilhado por ano',type:'bars',stacked:true,cats:a.map(String),catLabel:'Ano',height:300,
+      series:[{name:'Receita operacional recorrente',data:a.map(M.receitaOperacional),color:sc(1)},
+              {name:'Transferências e extraordinários',data:a.map(M.receitaExtra),color:sc(0)}]}));
+    w.appendChild(f2);
+
+    w.appendChild(node(`<div class="folha"><p class="eyebrow">Estrutura de capital</p><h2>O que está no balanço</h2>
+      <p>O ativo total de ${ult} é de ${V(B.t('ativoTotal',ult))}, com ${V(bal('ativoNaoCirculante','Imobilizado',ult))} de imobilizado e ${V(bal('ativoNaoCirculante','Intangível',ult))} de intangível, este último impulsionado pelo investimento em direitos econômicos de atletas e pela recompra da participação nos direitos comerciais do Brasileirão.</p>
+      <p>O passivo de ${V(B.t('passivoTotal',ult))} se concentra em tributos parcelados (${V(B.tributosTotais(ult))}), obrigações trabalhistas e encargos (${V(bal('passivoCirculante','Obrigações trabalhistas',ult)+bal('passivoCirculante','Encargos sociais',ult))}), acordos judiciais (${V(bal('passivoCirculante','Acordos judiciais',ult)+bal('passivoNaoCirculante','Acordos judiciais (LP)',ult))}) e compromissos de transferências (${V(transfPagar(ult))}).</p>
+      <p>Para quem avalia entrada de capital, o ponto relevante é que <strong>a dívida onerosa é pequena</strong>: ${V(B.dividaBruta(ult))} de empréstimos, ou ${V(B.dividaLiquida(ult))} líquidos de caixa. O passivo é majoritariamente fiscal e trabalhista, o que muda o tipo de negociação necessária: menos refinanciamento bancário, mais transação tributária e acordo judicial.</p>
+      <h3>Estrutura patrimonial em ${ult}</h3>
+      ${(()=>{
+        const pt=B.t('passivoTotal',ult);
+        const linhas=[
+          ['Ativo circulante',B.t('ativoCirculante',ult),null],
+          ['Ativo não circulante',B.t('ativoNaoCirculante',ult),null],
+          ['Total do ativo',B.t('ativoTotal',ult),null,'hl'],
+          ['Tributos parcelados',B.tributosTotais(ult),B.tributosTotais(ult)/pt],
+          ['Compromissos de transferências',transfPagar(ult),transfPagar(ult)/pt],
+          ['Acordos judiciais',bal('passivoCirculante','Acordos judiciais',ult)+bal('passivoNaoCirculante','Acordos judiciais (LP)',ult),(bal('passivoCirculante','Acordos judiciais',ult)+bal('passivoNaoCirculante','Acordos judiciais (LP)',ult))/pt],
+          ['Obrigações trabalhistas e encargos',bal('passivoCirculante','Obrigações trabalhistas',ult)+bal('passivoCirculante','Encargos sociais',ult),(bal('passivoCirculante','Obrigações trabalhistas',ult)+bal('passivoCirculante','Encargos sociais',ult))/pt],
+          ['Empréstimos e financiamentos',B.dividaBruta(ult),B.dividaBruta(ult)/pt],
+          ...(()=>{const d=pt-B.tributosTotais(ult)-transfPagar(ult)
+            -(bal('passivoCirculante','Acordos judiciais',ult)+bal('passivoNaoCirculante','Acordos judiciais (LP)',ult))
+            -(bal('passivoCirculante','Obrigações trabalhistas',ult)+bal('passivoCirculante','Encargos sociais',ult))
+            -B.dividaBruta(ult);
+            return [['Demais passivos',d,d/pt]];})(),
+          ['Total do passivo',pt,1,'hl'],
+          ['Patrimônio líquido',B.pl(ult),null,'hl'],
+        ];
+        return '<div class="tw"><table class="t dre"><thead><tr><th>Conta</th><th>R$ mil</th><th>Do passivo</th></tr></thead><tbody>'
+          +linhas.map(([n,v,pc,cls])=>`<tr${cls?' class="'+cls+'"':''}><td>${esc(n)}</td><td class="n${v<0?' neg':''}">${fmt(v)}</td><td>${pc==null?SEM_VALOR:nf1.format(pc*100)+'%'}</td></tr>`).join('')
+          +'</tbody></table></div>';
+      })()}
+      </div>`));
+
+    w.appendChild(node(`<div class="folha"><p class="eyebrow">Diligência</p><h2>Riscos a verificar antes de qualquer proposta</h2>
+      <p>Além do que aparece nas demonstrações, uma diligência precisaria confirmar o cronograma completo dos parcelamentos e as condições de perda de cada programa, a exposição real em contingências além do provisionado, os contratos de transferência com cláusulas de performance, e o alcance da recompra dos direitos comerciais amortizada em cinquenta anos.</p>
+      ${tabelaRiscos()}</div>`));
+
+    w.appendChild(node(`<div class="folha"><p class="eyebrow">Síntese</p><h2>Análise SWOT sob a ótica do investidor</h2>
+      ${swot(
+        [`Receita total de <b>${fmt(B.receitaTotal(ult))}</b> com marca nacional consolidada`,
+         `Dívida onerosa baixa: <b>${fmt(B.dividaLiquida(ult))}</b> líquidos, o que deixa espaço para estruturar capital novo`,
+         `Ativo imobilizado próprio de <b>${fmt(bal('ativoNaoCirculante','Imobilizado',ult))}</b>`,
+         `Motor de formação e venda de atletas em funcionamento`,
+         `Primeiro EBITDA recorrente positivo do período, em <b>${fmt(M.ebitda(ult))}</b>`],
+        [`Patrimônio líquido de <b>${fmt(B.pl(ult))}</b> exige capitalização antes de qualquer alavancagem`,
+         `Capital circulante líquido de <b>${fmt(B.capitalCirculante(ult))}</b>`,
+         `Margem operacional de <b>${nf1.format(margemRec*100)}%</b> não suporta choque de receita`,
+         `Passivo tributário e trabalhista de difícil renegociação rápida`,
+         `Divergências de base em ${a.filter(y=>Math.abs(M.resultado(y)-B.dre('superavit',y))>=100).join(' e ')||'alguns anos'} exigem conferência antes de modelagem`],
+        [`Passivo majoritariamente fiscal permite transação tributária, caminho mais previsível que dívida de mercado`,
+         `Receitas de patrocínio, sócio e bilheteria sob gestão direta do controlador`,
+         `Curva de receita comprovada: multiplicada por <b>${nf1.format(M.receitaOperacional(ult)/M.receitaOperacional(ini))}</b> em ${ult-ini} anos`,
+         `Regulação nova cria vantagem para quem se enquadrar primeiro`,
+         `Estrutura de SAF isola o passivo histórico do veículo de investimento`],
+        [`Fair play da CBF com cobrança plena em 2028 e punições esportivas`,
+         `Perda do PROFUT aceleraria exigibilidade de parte relevante do passivo`,
+         `Saldo devedor de <b>${fmt(Math.abs(posTransf(ult)))}</b> em transferências pressiona o caixa dos próximos exercícios`,
+         `Dependência de desempenho esportivo para sustentar <b>${nf1.format(concentr*100)}%</b> da receita`,
+         `Despesa financeira de <b>${fmt(M.despesaFinanceira(ult))}</b> ao ano sobre a estrutura atual`])}
+      <h3>Condicionantes da tese</h3>
+      <p>A tese se sustenta se três condições forem verdadeiras ao mesmo tempo: que a margem operacional de ${nf1.format(margemRec*100)}% seja piso e não teto; que o passivo tributário possa ser reperfilado sem aceleração; e que a receita de transmissão se mantenha no patamar de ${ult} no próximo ciclo de comercialização. Se qualquer uma falhar, o aporte necessário deixa de ser de crescimento e passa a ser de salvamento.</p>
+      <div class="aviso">Este documento reúne e organiza informações das demonstrações contábeis auditadas de ${ini} a ${ult}. Não constitui recomendação de investimento, avaliação econômica formal, laudo de avaliação nem oferta. Qualquer decisão exige diligência independente e assessoria própria. O autor não é consultor de investimentos.</div></div>`));
+  }
 }},
 
 /* ---------- 12. Referências ---------- */
